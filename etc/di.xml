@@ -16,10 +16,4 @@
                 type="MagePal\CartQtyIncrements\Plugin\QtyIncrementsHtmlDivPlugin"
                 sortOrder="1"/>
     </type>
-
-    <type name="Magento\InventorySales\Model\IsProductSalableForRequestedQtyCondition\IsCorrectQtyCondition">
-        <plugin name="MagePal_CartQtyIncrements_IsCorrectQtyCondition"
-                type="MagePal\CartQtyIncrements\Plugin\Msi\IsCorrectQtyConditionPlugin"
-                sortOrder="1"/>
-    </type>
 </config>

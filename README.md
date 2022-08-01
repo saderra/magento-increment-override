@@ -20,4 +20,3 @@ Log into your Magento 2 Admin, then goto Stores -> Configuration -> MagePal -> C
 
 © MagePal LLC. | [www.magepal.com](https://www.magepal.com)
 
-# magento-increment-override

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\CatalogInventory\Model\StockStateProvider">
+        <plugin name="MagePal_CartQtyIncrements_StockStateProvider"
+                type="MagePal\CartQtyIncrements\Plugin\StockStateProviderPlugin"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\CatalogInventory\Block\Plugin\ProductView">
+        <plugin name="MagePal_CartQtyIncrements_ProductView"
+                type="MagePal\CartQtyIncrements\Plugin\ProductViewPlugin"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\CatalogInventory\Block\Qtyincrements">
+        <plugin name="MagePal_CartQtyIncrements_QtyIncrementsHtmlDiv"
+                type="MagePal\CartQtyIncrements\Plugin\QtyIncrementsHtmlDivPlugin"
+                sortOrder="1"/>
+    </type>
+
+    <type name="Magento\InventorySales\Model\IsProductSalableForRequestedQtyCondition\IsCorrectQtyCondition">
+        <plugin name="MagePal_CartQtyIncrements_IsCorrectQtyCondition"
+                type="MagePal\CartQtyIncrements\Plugin\Msi\IsCorrectQtyConditionPlugin"
+                sortOrder="1"/>
+    </type>
+</config>

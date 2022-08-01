@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MagePal LLC. All rights reserved.
+ * See COPYING.txt for license details.
+ * https://www.magepal.com | support@magepal.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="magepal_cart_qty_increments" translate="label" type="text" sortOrder="340" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cart Qty Increments</label>
+            <tab>magepal</tab>
+            <resource>MagePal_CartQtyIncrements::magepal_cart_qty_increments</resource>
+            <group id="about_magepal" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label">
+                <label>About Cart Qty Increments</label>
+                <attribute type="expanded">1</attribute>
+                <comment>
+                <![CDATA[
+                    <div class="magepal-info">
+                        Copyright © 2022 <a href="https://www.magepal.com/magento2/extensions.html?utm_source=cartQtyIncrements&utm_medium=admin" target="_blank">MagePal, LLC</a>
+                        <a href="https://www.magepal.com/magento2/extensions.html?utm_source=cartQtyIncrements&utm_medium=admin" target="_blank">More Extensions</a>
+                    </div>
+                    <hr class="magepal-hr" />
+              ]]>
+                </comment>
+                <field id="MagePal_CartQtyIncrements" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Composer Version</label>
+                    <frontend_model>MagePal\Core\Block\Adminhtml\System\Config\Composer\Version</frontend_model>
+                </field>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cart Qty Increments Setting</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ignore_core_restriction" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignore Global Qty Increment Restrictions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="store_qty" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable Store Qty Increments Restriction</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="increment" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Qty Increments allows in Shopping Cart</label>
+                    <validate>required-entry validate-number validate-greater-than-zero admin__control-text</validate>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="customer_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable Customer Group Qty Restriction</label>
+                <field id="active" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="increment" translate="label" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Qty Increments allows in Shopping Cart</label>
+                    <frontend_model>MagePal\CartQtyIncrements\Block\Adminhtml\Form\Field\IncrementSaleableQty</frontend_model>
+                    <backend_model>Magento\CatalogInventory\Model\System\Config\Backend\Minsaleqty</backend_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+            </group>
+
+
+        </section>
+    </system>
+</config>
